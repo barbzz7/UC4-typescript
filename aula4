@@ -1,0 +1,75 @@
+/*/Pesquisa
+O que acontece se todos os atributos de uma classe forem public?
+
+signifiva que qualquer codigo externo (fora da classe) pode acessar e modificar
+ diretamente esses atributos, sem restrições.
+
+Qual a diferença entre private e protected no TypeScript?
+no private so pode ser acessado dentro da propria classe
+ja no protected pode ser acessado dentro da propria classe e tambem nas subclasses
+fora isso (código externo) nao da pra acessar
+
+Dê exemplos reais de coisas do cotidiano que precisam de encapsulamento (como o saldo bancário).
+senha de celular
+notas escolares online*/
+
+ //PESSOA
+class Pessoa {
+    private idade: number;
+    constructor(idadeInicial: number) {
+        this.idade = idadeInicial;
+    }
+
+    public FazendoAniversario(): void{
+        this.idade++;
+    }
+
+    public mostrarIdade(): void {
+       console.log(`Sua idade é: ${this.idade}`);
+    }
+}
+const pessoa = new Pessoa(17);
+console.log(pessoa.mostrarIdade);
+
+
+pessoa.mostrarIdade();
+
+// CELULAR
+class celular {
+    private niveldbateria: number;
+
+    constructor() {
+        this.niveldbateria =100;
+    }
+
+    public usar(): void {
+    if (this.niveldbateria -=5) {
+      this.niveldbateria <= 20;
+      console.log(`Bateria baixa ${this.niveldbateria}% `);
+    } else {
+      console.log(`Você usou o celular dms, da um tempo ${this.niveldbateria}%`);
+    }
+  }
+
+    public Carregar(): void{
+        this.niveldbateria+=10
+        if(this.niveldbateria >100) {
+            this.niveldbateria =100;
+        }
+        console.log(`Carregando... Bateria atual ${this.niveldbateria}%`);
+    }
+
+    public mostrarBateria(): void{
+        console.log(`Sua bateria atual é: ${this.niveldbateria}`);
+    }
+
+}
+const Celular = new celular();
+Celular.usar();
+Celular.mostrarBateria();
+Celular.usar();        
+
+
+
+
+
