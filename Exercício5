@@ -1,0 +1,96 @@
+class Pessoa5 {
+    nome: string;
+
+    constructor(nome: string){
+        this.nome = nome
+    }
+
+    apresentar(){
+        console.log(`ola, meu nome é ${this.nome}`)
+    }
+}
+  
+
+class professor extends Pessoa5 {
+    ensinar() {
+        console.log(`${this.nome} está ensinando..`)
+    }
+}
+ 
+class alunos extends Pessoa5 {
+    estudar(){
+        console.log(`${this.nome} está estudando`)
+    }
+}
+
+const prof = new professor("sidzoka");
+prof.apresentar();
+prof.ensinar();
+
+const aluno = new alunos("eduardo");
+aluno.apresentar();
+aluno.estudar();
+
+
+
+// EX2
+
+
+class Funcionario {
+    nome: string;
+    salario: number;
+
+    constructor(nome: string, salario: number){
+        this.nome = nome
+        this.salario = salario
+    }
+
+    mostrarSalario(){
+        console.log(`${this.nome} recebe R$${this.salario}`)
+    }
+}
+
+class Gerente extends Funcionario{
+    aumentarSalario() {
+this.salario += 10;
+console.log(`${this.nome} Recebeu um aumento salario: ${this.salario}`)
+    }
+}
+ class Estagiario extends Funcionario {
+    ReceberNovoSalario(){
+this.salario += 100
+console.log(`${this.nome} Recebeu um pequeno aumento ${this.salario}`)
+    }
+}
+
+const gerente = new Gerente("jian", 5000)
+gerente.mostrarSalario();
+gerente.aumentarSalario();
+
+const estagiario = new Estagiario("luiz", 600)
+estagiario.mostrarSalario();
+estagiario.ReceberNovoSalario();
+
+
+
+
+/*EX escrita
+Cite 3 exemplos do mundo real que poderiam ser representados com herança (ex: Veículo → Carro/Moto).
+Animal
+Cão, Gato e Pássaro; 
+Empregado 
+Gerente Programador designer 
+Veículo  
+Carro, Moto e Caminhão.
+
+
+Qual a diferença entre classe pai e classe filha?
+A diferença entre classe pai e classe filha é que a classe pai (ou superclasse) 
+define atributos e métodos mais gerais, 
+enquanto a classe filha (ou subclasse) herda essas características, 
+mas pode adicionar comportamentos próprios ou sobrescrever os já existentes,
+tornando-se mais específica.
+
+Pesquise: em quais linguagens além do TypeScript existe herança em POO?
+Além do TypeScript, linguagens de programação orientadas a objetos utilizam herança, como Java, C++ 
+*/
