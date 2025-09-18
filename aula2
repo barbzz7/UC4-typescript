@@ -1,0 +1,46 @@
+function dobrar(n: number): number {
+     return n * 2;
+} 
+console.log(dobrar(5));
+
+
+//Crie uma função saudacao que receba um nome ( string) e retorne "Olá, <nome>".
+function saudacao(nome: string): string{
+    return "olá," + nome
+}
+console.log(saudacao("erica")) 
+
+
+//Defina um array de strings com nomes de amigos e percorra ele com forEach.
+ const amigos = ["Erduardo", "Luiz do front", "Sid do beck", "kalleozada", "tio jiann"]
+amigos.forEach((num) => (num));
+
+
+//Crie uma tupla que armazene [nome, idade].//
+let pessoa: [string, number];
+pessoa = ["lua", 17];
+console.log("Nome:", pessoa[0]);
+console.log("idade:", pessoa[1]);
+
+//Crie um enum para representar níveis de acesso: ADMIN, USER, GUEST.
+ enum Acesso { ADMIN, USER, GUEST }
+ console.log(Acesso[0], Acesso.GUEST); 
+
+
+// Crie um objeto pessoa com propriedades tipadas (nome, idade, email).
+const pessoa: {
+    nome: string;
+    idade: number;
+    email:string;
+} = {
+    nome: "sidizoka",
+    idade: 600,
+    email: "sidizoka@dobeck.com",
+};
+ console.log(pessoa)
+
+//Escreva uma função que nunca retorna (never), lançando um erro. 
+
+function erro(): never { 
+    throw new Error ("algo deu errado!")
+}
