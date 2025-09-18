@@ -1,0 +1,40 @@
+class ContaBancaria {
+  private saldo: number;
+
+  constructor(saldoInicial: number) {
+    this.saldo = saldoInicial;
+  }
+
+  // Método público para depositar
+  public depositar(valor: number): void {
+    if (valor > 0) {
+      this.saldo += valor;
+      console.log(`Depósito de R$${valor} realizado!`);
+    } else {
+      console.log("Valor inválido para depósito.");
+    }
+  }
+
+  // Método público para sacar
+  public sacar(valor: number): void {
+    if (valor <= this.saldo) {
+      this.saldo -= valor;
+      console.log(`Saque de R$${valor} realizado!`);
+    } else {
+      console.log("Saldo insuficiente!");
+    }
+  }
+
+  // Método público para consultar saldo
+  public consultarSaldo(): void {
+    console.log(`Saldo atual: R$${this.saldo}`);
+  }
+}
+
+const minhaConta = new ContaBancaria(1000);
+minhaConta.depositar(500);     // Depósito de R$500 realizado!
+minhaConta.sacar(200);         // Saque de R$200 realizado!
+minhaConta.consultarSaldo();   // Saldo atual: R$1300
+
+// 🚫 Não funciona (saldo é privado)
+// console.log(minhaConta.saldo); 
