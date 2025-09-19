@@ -10,17 +10,11 @@
 //Crie uma classe abstrata Animalcom o método abstrato falar().
 
 abstract class Animal {
-    nome: string;
-    
-    constructor(nome: string){
-       this.nome = nome
-    }
+    constructor(public nome: string){}
+       
 
 abstract falar(): void;
 
-    barulho(){
-        console.log(`O ${this.nome} está fazendo barulho`);
-    }
 }
 
 class Cachorro extends Animal {
@@ -37,12 +31,10 @@ class Gato extends Animal {
 
 const dog = new Cachorro("Ragnar")
 dog.falar();
-dog.barulho();
 
 
 const cat = new Gato("Anakin")
 cat.falar();
-cat.barulho();
 
 
 console.log("-----------------")
