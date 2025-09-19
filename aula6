@@ -1,0 +1,77 @@
+// 1 Qual a principal diferença entre classe abstrata e interface no TypeScript?.
+
+// interface só define a forma (assinatura de metodos e propriedades) Nao tem implemetação 
+// ja na classe abstrata pode definir a forma e contem a impleentaçao parcial⁉
+
+// 2 Em quais casos você escolheria uma classe abstrata ao invés de uma interface?
+
+//Quando varias classes compartilharem o mesmo codigo/método igual  
+//ou quando usar atributos comuns como nome, idade, etc.
+//Crie uma classe abstrata Animalcom o método abstrato falar().
+
+abstract class Animal {
+    nome: string;
+    
+    constructor(nome: string){
+       this.nome = nome
+    }
+
+abstract falar(): void;
+
+    barulho(){
+        console.log(`O ${this.nome} está fazendo barulho`);
+    }
+}
+
+class Cachorro extends Animal {
+    falar(): void {
+        console.log(`Au au!`)
+    }
+}
+
+class Gato extends Animal {
+    falar(): void {
+        console.log(`Miauw!`)
+    }
+}
+
+const dog = new Cachorro("Ragnar")
+dog.falar();
+dog.barulho();
+
+
+const cat = new Gato("Anakin")
+cat.falar();
+cat.barulho();
+
+
+console.log("-----------------")
+//Crie uma interface Veiculocom as propriedades marcae modelo, e o método acelerar().
+
+
+interface veiculos {
+    marca: string;
+    modelo: string;
+    acelerar(): void;
+}
+
+class carro implements veiculos {
+    constructor(public marca: string, public modelo: string ){}
+ 
+
+    acelerar(): void {
+        console.log(`${this.marca} modelo ${this.modelo} está acelerando..` );
+    }
+}
+
+class Moto implements veiculos {
+    constructor(public marca: string, public modelo: string ){}
+    
+    acelerar(): void {
+        console.log(`${this.marca} modelo ${this.modelo} está acelerando..` );
+    }
+}
+const moto = new Moto("Royal Enfield","Hunter 350")
+const Auto = new carro("toyota","corolla")
+Auto.acelerar();
+moto.acelerar();
